@@ -1,4 +1,9 @@
 import streamlit as st
+from utils.data_loader import load_data
+from utils.preprocess import clean_data
+from utils.data_profile  import get_data_sum
+
+
 
 st.set_page_config(
     page_title = "FoodSense",
@@ -6,6 +11,51 @@ st.set_page_config(
     layout = "wide"
 
 )
+df = load_data("data/zomato_dataset.csv")
+df = clean_data(df)
+summary = get_data_sum(df)
+#st.write(summary)
+#st.write(df[["name","rate","location","cuisines"]].head())
+
+
+# creating overview of restaurants in metrics way for brtter buisness kinda analysis
+
+st.subheader("📊 Restaurant Overview")
+
+metric1, metric2, metric3, metric4 = st.columns(4)
+
+with metric1:
+    st.metric(
+        "Total Restaurants",
+        summary["total_restaurants"]
+    )
+
+with metric2:
+    st.metric(
+        "Cities Covered",
+        summary["total_cities"]
+    )
+
+with metric3:
+    st.metric(
+        "Cuisines Available",
+        summary["total_cuisines"]
+    )
+
+with metric4:
+    st.metric(
+        "Average Rating",
+        summary["average_rating"]
+    ) 
+    #code for getting most popular cuisines in the visualization form
+
+st.subheader("🍽️ Most Popular Cuisines 🍽️ ")
+cuisine_counts = (df["cuisines"]
+    .value_counts()
+    .head(10))
+st.bar_chart(cuisine_counts)
+
+
 
 st.markdown("""
 <style>
