@@ -1,23 +1,15 @@
-# 🍽️ FoodSense AI
+## 🚀 Current Features
 
-AI-powered Restaurant Recommendation System using Machine Learning.
+- Interactive Streamlit dashboard
+- Data loading pipeline
+- Data preprocessing
+- Restaurant overview KPIs
+- Popular cuisines visualization
 
-## 🚀 Features
+## 🔜 Upcoming Features
 
-- Restaurant Recommendation
-- Restaurant Similarity Search
-- Analytics Dashboard
-- Interactive Maps
-- Favorites
-- Recommendation History
-
-## 🛠️ Tech Stack
-
-- Python
-- Streamlit
-- Scikit-Learn
-- Pandas
-- Plotly
-- SQLite
-- K-Means
-- TF-IDF
+- Recommendation engine
+- AI-powered restaurant search
+- Interactive maps
+- Business analytics dashboard
+- User favorites
